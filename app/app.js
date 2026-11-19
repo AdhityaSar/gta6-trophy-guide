@@ -137,8 +137,23 @@ for (const btn of document.querySelectorAll('.viewtabs button')) {
 }
 
 // --- deep linking (shareable state): #roadmap | #missables | #checklist | #trophy=<name> ---
+// A `#demo` prefix seeds a few earned trophies in memory only (never persisted), so a fresh
+// screenshot or share shows realistic progress without touching the visitor's save.
+const DEMO_EARNED = [
+  'Just Like Paradise', 'Paradise Lost', 'T**s Ass Drug Money', 'Trust', 'Break the Bank',
+  'Master of None', 'Whip It Good', 'The Goodtime State',
+];
+
 function applyHash() {
-  const hash = location.hash.replace(/^#/, '');
+  let hash = location.hash.replace(/^#/, '');
+  // A `demo+` prefix seeds a few earned trophies in memory only (never persisted).
+  if (hash.startsWith('demo+')) {
+    for (const name of DEMO_EARNED) if (trophies.some((x) => x.name === name)) earned.add(name);
+    hash = hash.slice('demo+'.length);
+  } else if (hash === 'demo') {
+    for (const name of DEMO_EARNED) if (trophies.some((x) => x.name === name)) earned.add(name);
+    hash = 'checklist';
+  }
   if (hash === 'roadmap' || hash === 'missables' || hash === 'checklist') {
     setView(hash);
     return;
