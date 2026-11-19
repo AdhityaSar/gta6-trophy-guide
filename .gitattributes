@@ -1,0 +1,3 @@
+# Keep the vendored dossier library byte-for-byte identical to the kit's copy (LF, no CRLF).
+vendor/makefun-frontend.ts text eol=lf
+*.ts text eol=lf
