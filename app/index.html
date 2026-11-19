@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Guide — GTA VI Trophy Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">VI</span>
+    <div class="brand-text">
+      <h1>Vice Guide</h1>
+      <p class="subtitle">Grand Theft Auto VI · PS5 trophy tracker</p>
+    </div>
+  </div>
+  <div class="progress">
+    <div class="progress-head">
+      <span id="progress-label">0 / 55 earned</span>
+      <span id="progress-pct">0%</span>
+    </div>
+    <div class="progress-bar" role="progressbar" aria-label="trophy progress">
+      <div id="progress-fill"></div>
+    </div>
+    <div class="grade-totals" id="grade-totals"></div>
+  </div>
+</header>
+
+<nav class="viewtabs" aria-label="views">
+  <button type="button" data-view="checklist" class="active">Checklist</button>
+  <button type="button" data-view="roadmap">Roadmap</button>
+  <button type="button" data-view="missables">Missables</button>
+</nav>
+
+<section class="controls" aria-label="filters and tools">
+  <input id="search" type="search" placeholder="Search trophies, missions, guides…" autocomplete="off">
+  <div class="filter-group" id="kind-filters" aria-label="filter by kind"></div>
+  <div class="filter-group" id="grade-filters" aria-label="filter by grade"></div>
+  <label class="spoiler" title="Hide the names and descriptions of hidden trophies until you tick them off">
+    <input type="checkbox" id="spoiler">
+    <span>Hide spoilers</span>
+  </label>
+  <div class="io">
+    <button type="button" id="export">Export</button>
+    <label class="import">Import<input id="import" type="file" accept="application/json"></label>
+  </div>
+</section>
+
+<main class="layout">
+  <section id="checklist-view" class="view"></section>
+  <section id="roadmap-view" class="view hidden"></section>
+  <section id="missables-view" class="view hidden"></section>
+  <aside id="detail" class="detail" aria-label="trophy details"></aside>
+</main>
+
+<footer class="footer">
+  <span>55 trophies · 1 platinum · 2 gold · 6 silver · 46 bronze</span>
+  <span class="dot">·</span>
+  <span>Progress is saved in this browser only</span>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
